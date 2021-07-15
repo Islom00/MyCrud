@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+    <style>
+    body {
+        background-color: antiquewhite !important;
+    }
+    h1  {
+        font-family: sans-serif;
+    }
+    </style>
+
+    <h1 class="bg-warning text-center">Book detail</h1>
+    <div style="margin-left: 30%" class="container mt-5">
+        <div class="card" style="width: 30%;">
+            <img class="card-img-top" src="{{ object.cover.url }}" alt="Card image cap">
+            <div class="card-body">
+                <h2 class="card-title">{{ object.title }}</h2>
+                <p class="card-text">Author: {{ object.author }}</p>
+                {% for i in object.genres.all %}
+                <p class="card-text">Genre: {{ i.title }}</p>
+                {% endfor %}
+                <p class="card-text">ISBN: {{ object.isbn }}</p>
+                <p class="card-text">Page_count: {{ object.page_count }}</p>
+                <p class="card-text">Summary: {{ object.summary }}</p>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="#" class="btn btn-success"><span class="fa fa-shopping-cart"></span></a>
+                        <a href="#" class="btn btn-danger"><span class="fa fa-heart"></span></a>
+                        <a href="#" class="btn btn-primary"><span class="fa fa-share"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
