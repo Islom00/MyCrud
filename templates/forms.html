@@ -1,5 +1,12 @@
 {% extends 'layouts/base.html' %}
 {% block content %}
-{{ form.as_p }}
-    <div class="btn btn-success">Add</div>
+    <div class="container center text-white bg-warning">
+        <a href="{% url 'index' %}" class="btn btn-primary btn-sm mb-5"><span class="fa fa-undo"></span></a>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-success mb-5">Submit</button>
+        </form>
+
+    </div>
 {% endblock %}

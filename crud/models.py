@@ -33,7 +33,7 @@ class BookModel(models.Model):
     title = models.CharField(max_length=128, verbose_name="title")
     author = models.ForeignKey(AuthorModel, on_delete=models.PROTECT, related_name="books", verbose_name="author")
     genres = models.ManyToManyField(GenreModel, related_name="books", verbose_name="genres")
-    cover = models.ImageField(upload_to="images", null=True, verbose_name="cover")
+    cover = models.ImageField(upload_to="images", blank=True)
     isbn = models.CharField(max_length=13, verbose_name="isbn")
     page_count = models.IntegerField(null=True, verbose_name="page count")
     summary = models.TextField(verbose_name="summary")
