@@ -20,9 +20,9 @@
                     <td>{{ i.author }}</td>
                     <td>{{ i.created_at| date:"d N Y" }}</td>
                     <td>
-                        <a href="{% url 'book' i.pk %}" class="btn btn-success btn-sm"><span
-                                class="fa fa-eye"></span></a>
-                        <a href="{% url 'book' i.pk %}" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></a>
+                        <a href="{% url 'book' i.pk %}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                        <a href="{% url 'update_book' i.pk %}" class="btn btn-white btn-sm"><i class="fa fa-pen"></i></a>
+                        <a onclick="return confirm('Are you sure to delete this book ?')" href="{% url 'delete' i.pk %}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             {% endfor %}
